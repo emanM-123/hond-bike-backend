@@ -18,7 +18,6 @@ const auth = new google.auth.GoogleAuth({
         auth_provider_x509_cert_url: process.env.GOOGLE_AUTH_PROVIDER_X509_CERT_URL,
         client_x509_cert_url: process.env.GOOGLE_CLIENT_X509_CERT_URL,
         universe_domain: process.env.UNIVERSE_DOMAIN
-
     },
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
@@ -29,6 +28,15 @@ async function getTemplate(templateName) {
     const templatePath = path.join(__dirname, `../templates/${templateName}.html`);
     return await readFile(templatePath, 'utf8');
 }
+const formatDate = () => {
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = now.getFullYear();
+
+    return `${day}/${month}/${year}`;
+};
+const currentDate = formatDate();
 
 const sendEmail = async (req, res) => {
     try {
@@ -45,12 +53,13 @@ const sendEmail = async (req, res) => {
             templateData.email || '',
             templateData.branch || '',
             templateData.selectedModel || '', 
-            templateData.subject || '',
-            templateData.message || '',
+            templateData.description || '',
+            templateData.message || '',            
             templateData.renewInsuranceChecked || '',
             templateData.extendedWarrantyChecked || '',
             templateData.forTestRide || 'No',
-            templateData.forEnquiry || 'No'
+            templateData.forEnquiry || 'No',
+            currentDate
         ];
         const sheets = google.sheets({ version: 'v4', auth });
         await sheets.spreadsheets.values.append({
