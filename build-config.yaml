@@ -1,0 +1,7 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$bnb-yfyf/honda-app-server', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$bnb-yfyf/honda-app-server']
+images:
+  - 'gcr.io/$PROJECT_ID/honda-app-server'
