@@ -44,27 +44,23 @@
         <table>
             <tr>
                 <th>Name</th>
-                <td>{{name}}</td>
+                <td>{{name? name : ''}}</td>
             </tr>
             <tr>
                 <th>Email</th>
-                <td>{{email}}</td>
+                <td>{{email? email : ''}}</td>
             </tr>
             <tr>
                 <th>Mobile Number</th>
-                <td>{{phone}}</td>
-            </tr>
-            <tr>
-                <th>City</th>
-                <td>Bangalore</td>
+                <td>{{phone? phone : ''}}</td>
             </tr>
             <tr>
                 <th>Nearest Branch</th>
-                <td>{{branch}}</td>
+                <td>{{branch? branch : ''}}</td>
             </tr>
             <tr>
                 <th>Message</th>
-                <td>{{description}}</td>
+                <td>{{description? description : ''}}</td>
             </tr>
         </table>
     </div>

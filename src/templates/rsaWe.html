@@ -56,23 +56,23 @@
         <table>
             <tr>
                 <th>Name</th>
-                <td>{{name}}</td>
+                <td>{{name? name : ''}}</td>
             </tr>
             <tr>
                 <th>Email</th>
-                <td>{{email}}</td>
+                <td>{{email? email : ''}}</td>
             </tr>
             <tr>
                 <th>Mobile Number</th>
-                <td>{{phone}}</td>
+                <td>{{phone? phone : ''}}</td>
             </tr>
             <tr>
                 <th>Bike Model</th>
-                <td>{{selectedModel}}</td>
+                <td>{{selectedModel? selectedModel : ''}}</td>
             </tr>
             <tr>
                 <th>Branch</th>
-                <td>{{selectedBranch}}</td>
+                <td>{{selectedBranch? selectedBranch : ''}}</td>
             </tr>
             <tr>
                 <th>Description</th>

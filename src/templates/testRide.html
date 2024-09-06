@@ -44,36 +44,29 @@
         <table>
             <tr>
                 <th>Name</th>
-                <td>{{name}}</td>
+                <td>{{name? name : ''}}</td>
             </tr>
             <tr>
                 <th>Email</th>
-                <td>{{email}}</td>
+                <td>{{email? email : ''}}</td>
             </tr>
             <tr>
                 <th>Phone Number</th>
-                <td>{{phone}}</td>
+                <td>{{phone? phone : ''}}</td>
             </tr>
             <tr>
                 <th>Bike Model</th>
-                <td>{{selectedModel}}</td>
+                <td>{{selectedModel? selectedModel : ''}}</td>
             </tr>
             <tr>
                 <th>City</th>
-                <td>{{city}}</td>
+                <td>{{city ? city : ''}}</td>
             </tr>
             <tr>
                 <th>Nearest Branch</th>
-                <td>{{branch}}</td>
+                <td>{{branch ?  branch : ''}}</td>
             </tr>
-            <tr>
-                <th>Bike Model</th>
-                <td>{{bikeModel}}</td>
-            </tr>
-            <tr>
-                <th>Bike Model</th>
-                <td>{{bikeModel}}</td>
-            </tr>
+
         </table>
     </div>
 </body>
